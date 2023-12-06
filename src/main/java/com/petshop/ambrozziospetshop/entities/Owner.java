@@ -1,20 +1,19 @@
 package com.petshop.ambrozziospetshop.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-
-@Getter
-@Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
+@Entity
+@Table(name = "tb_owner")
 public class Owner extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cpf;
     private String rg;

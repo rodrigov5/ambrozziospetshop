@@ -1,7 +1,7 @@
 package com.petshop.ambrozziospetshop.resources;
 
-import com.petshop.ambrozziospetshop.entities.Pet;
-import com.petshop.ambrozziospetshop.services.PetService;
+import com.petshop.ambrozziospetshop.entities.Owner;
+import com.petshop.ambrozziospetshop.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/pets")
-public class PetResource {
+@RequestMapping(value = "/owners")
+public class OwnerResource {
 
     @Autowired
-    private PetService service;
+    private OwnerService service;
 
     @GetMapping
-    public ResponseEntity<List<Pet>> findAll() {
-        List<Pet> list = service.findAll();
+    public ResponseEntity<List<Owner>> findAll() {
+        List<Owner> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Pet> findById(@PathVariable Long id) {
-        Pet obj = service.findById(id);
+    public ResponseEntity<Owner> findById(@PathVariable Long id) {
+        Owner obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }
